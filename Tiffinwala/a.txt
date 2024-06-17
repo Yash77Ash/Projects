@@ -1,0 +1,201 @@
+--
+-- Database: `db_food`
+--
+CREATE DATABASE IF NOT EXISTS `db_food` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `db_food`;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbadmin`
+--
+
+CREATE TABLE `tbadmin` (
+  `fld_id` int(11) NOT NULL,
+  `fld_username` varchar(30) NOT NULL,
+  `fld_password` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblvendor`
+--
+
+CREATE TABLE `tblvendor` (
+  `fldvendor_id` int(10) NOT NULL,
+  `fld_name` varchar(30) NOT NULL,
+  `fld_email` varchar(50) NOT NULL,
+  `fld_password` varchar(30) NOT NULL,
+  `fld_mob` bigint(10) NOT NULL,
+  `fld_phone` bigint(10) NOT NULL,
+  `fld_address` varchar(100) NOT NULL,
+  `fld_logo` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_customer`
+--
+
+CREATE TABLE `tbl_customer` (
+  `CustomerID` int(11) NOT NULL,
+  `CustomerName` varchar(250) NOT NULL,
+  `Address` text NOT NULL,
+  `City` varchar(250) NOT NULL,
+  `PostalCode` varchar(30) NOT NULL,
+  `Country` varchar(100) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_customer`
+--
+
+REPLACE INTO `tbl_customer` (`CustomerID`, `CustomerName`, `Address`, `City`, `PostalCode`, `Country`) VALUES
+(1, 'Rahul Sharma', '123 Main Street', 'Chinchwad', '411018', 'India'),
+(2, 'Priya Patel', '456 Park Avenue', 'Pimpri', '411016', 'India'),
+(3, 'Amit Singh', '789 Broadway', 'Sangvi', '411027', 'India'),
+(4, 'Sunita Gupta', '101 Lake Road', 'Kalewadi', '411017', 'India'),
+(5, 'Rajesh Kumar', '555 Hillcrest Avenue', 'Bhosari', '411019', 'India'),
+(6, 'Arun Kumar', '1234 MG Road', 'Pune', '412005', 'India'),
+(7, 'Neha Gupta', '456 Brigade Road', 'kothrud', '410032', 'India'),
+(8, 'Sanjay Patel', '789 Park Street', 'Ravet', '411012', 'India'),
+(9, 'Deepika Sharma', '101 Rajaji Nagar', 'Talegoan', '409014', 'India'),
+(10, 'Rajesh Singh', '555 Electronic City', 'Moshi', '411020', 'India');
+
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `tbadmin`
+--
+ALTER TABLE `tbadmin`
+  ADD PRIMARY KEY (`fld_id`);
+
+--
+-- Indexes for table `tblvendor`
+--
+ALTER TABLE `tblvendor`
+  ADD PRIMARY KEY (`fldvendor_id`);
+
+--
+-- Indexes for table `tbl_customer`
+--
+ALTER TABLE `tbl_customer`
+  ADD PRIMARY KEY (`CustomerID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `tbadmin`
+--
+ALTER TABLE `tbadmin`
+  MODIFY `fld_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tblvendor`
+--
+ALTER TABLE `tblvendor`
+  MODIFY `fldvendor_id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_customer`
+--
+ALTER TABLE `tbl_customer`
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `test`;
+
+
+
+CREATE TABLE `orders` (
+  `OrderID` int(11) NOT NULL,
+  `OrderNumber` int(11) NOT NULL,
+  `PersonID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `reg_data` (
+  `id` int(10) NOT NULL,
+  `name` text NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `mobile` varchar(10) NOT NULL,
+  `address` varchar(70) NOT NULL,
+  `gender` enum('M','F') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `reg_data` (`id`, `name`, `email`, `password`, `mobile`, `address`, `gender`) VALUES
+(1, 'ANISHA', '', '', '0', '', 'M'),
+(2, 'ANISHA', 'gajenderdh947@gmail.com', '', '0', '', 'M'),
+(3, 'ANISHA', 'gajenderdh947@gmail.com', '', '0', '', 'M'),
+(4, 'ANISHA', 'gajenderdh947@gmail.com', '', '0', '', 'M'),
+(5, 'ANISHA', 'gajenderdh947@gmail.com', 'dfdfdsdf', '0', '', 'M'),
+(6, 'ANISHA', 'gajenderdh947@gmail.com', 'dfdfdf', '7503128154', '', 'M'),
+(7, 'ANISHA', 'gajenderdh947@gmail.com', 'sdsdsd', '7503128154', 'MUNDKA', 'M'),
+(8, 'gajender', 'gajenderdh947539@outlook.com', 'fdfsd', '7503128154', 'MUNDKA', 'M');
+
+
+
+CREATE TABLE `user_info` (
+  `s.no` int(10) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+INSERT INTO `user_info` (`s.no`, `username`, `password`) VALUES
+(1, 'Dummy123', '879'),
+(2, 'Test123', '1234'),
+(3, 'Test09', '1234');
+
+
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`OrderID`),
+  ADD KEY `PersonID` (`PersonID`);
+
+
+ALTER TABLE `reg_data`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `user_info`
+  ADD PRIMARY KEY (`s.no`);
+
+
+
+
+ALTER TABLE `reg_data`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+
+ALTER TABLE `user_info`
+  MODIFY `s.no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+
+ALTER TABLE `orders`
+  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`PersonID`) REFERENCES `reg_data` (`id`);
+COMMIT;
+
