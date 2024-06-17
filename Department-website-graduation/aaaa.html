@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        max-width: 300px;
+        overflow: hidden;
+      }
+
+      .card-header {
+        align-items: center;
+        display: flex;
+        padding: 20px;
+      }
+
+      .card-header img {
+        border-radius: 50%;
+        margin-right: 20px;
+        height: 80px;
+        width: 80px;
+      }
+
+      .card-header h2 {
+        font-size: 24px;
+        margin: 0;
+      }
+
+      .card-body {
+        padding: 20px;
+      }
+
+      /* Add this to your existing CSS */
+      .hidden-info {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card-header">
+        <img src="teacher-photo.jpg" alt="Teacher's Name" />
+        <h2>Teacher's Name</h2>
+      </div>
+      <div class="card-body">
+        <p>Teacher's bio and additional information can go here...</p>
+        <div class="hidden-info">
+          <p>Email: teacher@email.com</p>
+          <p>Phone: 123-456-7890</p>
+          <p>Office Hours: Monday-Friday, 9am-5pm</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const teacherCard = document.querySelector(".card");
+
+    const profilePhoto = teacherCard.querySelector("img");
+    const hiddenInfo = teacherCard.querySelector(".hidden-info");
+
+    profilePhoto.addEventListener("click", () => {
+      if (hiddenInfo.style.display === "none") {
+        hiddenInfo.style.display = "block";
+      } else {
+        hiddenInfo.style.display = "none";
+      }
+    });
+  </script>
+</html>
